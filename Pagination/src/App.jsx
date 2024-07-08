@@ -4,16 +4,14 @@ import { foodData } from "./data";
 import Pagination from "./Pagination";
 
 const App = () => {
-  const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 4;
-
-  const totalPages = Math.ceil(foodData.length / itemsPerPage);
+  const [currectPage, setCurrentPage] = useState(1);
+  const itemPerPage = 4;
+  const totalPage = Math.ceil(foodData.length / itemPerPage);
 
   const currentItems = foodData.slice(
-    (currentPage - 1) * itemsPerPage,
-    currentPage * itemsPerPage
+    (currectPage - 1) * itemPerPage,
+    currectPage * itemPerPage
   );
-
   return (
     <div>
       <h1>Food List</h1>
@@ -36,8 +34,8 @@ const App = () => {
         </tbody>
       </table>
       <Pagination
-        currentPage={currentPage}
-        totalPages={totalPages}
+        currentpage={currectPage}
+        totalPage={totalPage}
         onPageChange={setCurrentPage}
       />
     </div>
